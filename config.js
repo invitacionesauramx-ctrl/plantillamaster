@@ -18,7 +18,7 @@ fechaCuentaRegresiva: "December 15, 2026 17:00:00",
     "Rosa Mendoza Salgado"
   ],
 
-  mensaje: "Hay momentos en la vida que son especiales por sí solos, pero compartirlos con quienes más quiero los convierte en inolvidables. Te invito a celebrar conmigo este día tan especial.",
+  mensaje: "Hayy 😉😉momentos en la vida que son especiales por sí solos, pero compartirlos con quienes más quiero los convierte en inolvidables. Te invito a celebrar conmigo este día tan especial.",
 
   // ===== CEREMONIA =====
   ceremonia: {
