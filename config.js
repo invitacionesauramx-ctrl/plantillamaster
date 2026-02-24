@@ -9,13 +9,13 @@ const CONFIG = {
 
   // ===== PADRES Y PADRINOS =====
   padres: [
-    "Pablo mendoza Huerta Sandoval",
-    "miriam Sanchez Cornejo"
+    "Pablo Mendoza Huerta Sandoval",
+    "Miriam Sanchez Cornejo"
   ],
 
   padrinos: [
-    "maylet Perez Nuñez",
-    "rosa Mendoza Salgado"
+    "Maylet Perez Nuñez",
+    "Rosa Mendoza Salgado"
   ],
 
   mensaje: "Hay momentos en la vida que son especiales por sí solos, pero compartirlos con quienes más quiero los convierte en inolvidables. Te invito a celebrar conmigo este día tan especial.",
@@ -24,7 +24,7 @@ const CONFIG = {
   ceremonia: {
     lugar: "Iglesia la capilla del niño",
     hora: "21:00 hrs",
-    direccion: "el cerrito Valle #453",
+    direccion: "El Cerrito Valle #453",
     ciudad: "Potacio, 60924",
     mapa: "https://www.google.com/maps/search/Iglesia+Espiritu+Santo"
   },
@@ -36,14 +36,14 @@ const CONFIG = {
     direccion: "Av. Manuel L. Barragán 134",
     ciudad: "Anáhuac, 60957",
     mapa: "https://www.google.com/maps/search/Zona+Eventos+Anahuac+60957"
-  }
+  },
+
+  // ===== ITINERARIO =====
+  itinerario: [
+    { hora: "21:00", titulo: "Ceremonia Religiosa", lugar: "Iglesia" },
+    { hora: "20:00", titulo: "Recepción", lugar: "Zona Exclusiva" },
+    { hora: "21:30", titulo: "Cena" },
+    { hora: "22:30", titulo: "Baile" }
+  ]
 
 };
-
-const padres = document.getElementById("padresTexto");
-const padrinos = document.getElementById("padrinosTexto");
-const mensajeEvento = document.getElementById("mensajeEvento");
-
-if(padres) padres.innerHTML = CONFIG.padres.join("<br>");
-if(padrinos) padrinos.innerHTML = CONFIG.padrinos.join("<br>");
-if(mensajeEvento) mensajeEvento.innerText = CONFIG.mensaje;
