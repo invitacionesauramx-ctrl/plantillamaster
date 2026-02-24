@@ -2,8 +2,8 @@ const CONFIG = {
 
   // ===== DATOS PRINCIPALES =====
   nombre: "Laura",
-  fechaTexto: "15 · 09 · 1988",
-  fechaCuentaRegresiva: "December 15, 2026 17:00:00",
+  fechaTexto: "15 · 12 · 2026",
+fechaCuentaRegresiva: "December 15, 2026 17:00:00",
   telefonoWhatsApp: "527531006781",
   hashtag: "#XVLaura2026",
 
@@ -25,7 +25,7 @@ const CONFIG = {
     lugar: "Iglesia la capilla del niño",
     hora: "21:00 hrs",
     direccion: "El Cerrito Valle #453",
-    ciudad: "Potacio, 60924",
+    ciudad: "Potasio, 60924",
     mapa: "https://www.google.com/maps/search/Iglesia+Espiritu+Santo"
   },
 
@@ -40,8 +40,8 @@ const CONFIG = {
 
   // ===== ITINERARIO =====
   itinerario: [
-    { hora: "21:00", titulo: "Ceremonia Religiosa", lugar: "Iglesia" },
     { hora: "20:00", titulo: "Recepción", lugar: "Zona Exclusiva" },
+    { hora: "21:00", titulo: "Ceremonia Religiosa", lugar: "Iglesia" },
     { hora: "21:30", titulo: "Cena" },
     { hora: "22:30", titulo: "Baile" }
   ]
