@@ -39,3 +39,11 @@ const CONFIG = {
   }
 
 };
+
+const padres = document.getElementById("padresTexto");
+const padrinos = document.getElementById("padrinosTexto");
+const mensajeEvento = document.getElementById("mensajeEvento");
+
+if(padres) padres.innerHTML = CONFIG.padres.join("<br>");
+if(padrinos) padrinos.innerHTML = CONFIG.padrinos.join("<br>");
+if(mensajeEvento) mensajeEvento.innerText = CONFIG.mensaje;
