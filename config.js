@@ -1,37 +1,37 @@
 const CONFIG = {
 
   // ===== DATOS PRINCIPALES =====
-  nombre: "Liliana",
-  fechaTexto: "29 · 12 · 2026",
-  fechaCuentaRegresiva: "December 29, 2026 17:00:00",
+  nombre: "Laura",
+  fechaTexto: "15 · 09 · 1988",
+  fechaCuentaRegresiva: "December 15, 2026 17:00:00",
   telefonoWhatsApp: "527531006781",
-  hashtag: "#XVLiliana2026",
+  hashtag: "#XVLaura2026",
 
   // ===== PADRES Y PADRINOS =====
   padres: [
-    "Ana Cristina Huerta Sandoval",
-    "Pablo Sanchez Cornejo"
+    "Pablo mendoza Huerta Sandoval",
+    "miriam Sanchez Cornejo"
   ],
 
   padrinos: [
-    "Berenice Perez Nuñez",
-    "Carlos Mendoza Salgado"
+    "maylet Perez Nuñez",
+    "rosa Mendoza Salgado"
   ],
 
   mensaje: "Hay momentos en la vida que son especiales por sí solos, pero compartirlos con quienes más quiero los convierte en inolvidables. Te invito a celebrar conmigo este día tan especial.",
 
   // ===== CEREMONIA =====
   ceremonia: {
-    lugar: "Iglesia Espíritu Santo",
-    hora: "17:00 hrs",
-    direccion: "Leandro Valle #453",
+    lugar: "Iglesia la capilla del niño",
+    hora: "21:00 hrs",
+    direccion: "el cerrito Valle #453",
     ciudad: "Potacio, 60924",
     mapa: "https://www.google.com/maps/search/Iglesia+Espiritu+Santo"
   },
 
   // ===== RECEPCIÓN =====
   recepcion: {
-    lugar: "Zona Eventos",
+    lugar: "Zona Exclusiva",
     hora: "20:00 hrs",
     direccion: "Av. Manuel L. Barragán 134",
     ciudad: "Anáhuac, 60957",
