@@ -1,10 +1,11 @@
-
 const CONFIG = {
 
   // ===== DATOS PRINCIPALES =====
   nombre: "Liliana",
   fechaTexto: "29 · 12 · 2026",
   fechaCuentaRegresiva: "December 29, 2026 17:00:00",
+  telefonoWhatsApp: "527531006781",
+  hashtag: "#XVLiliana2026",
 
   // ===== PADRES Y PADRINOS =====
   padres: [
@@ -35,12 +36,6 @@ const CONFIG = {
     direccion: "Av. Manuel L. Barragán 134",
     ciudad: "Anáhuac, 60957",
     mapa: "https://www.google.com/maps/search/Zona+Eventos+Anahuac+60957"
-  },
-
-  // ===== RSVP =====
-  telefonoWhatsApp: "527531006781",
-
-  // ===== GALERÍA =====
-  hashtag: "#XVLiliana2026"
+  }
 
 };
