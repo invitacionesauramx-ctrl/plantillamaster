@@ -1,1 +1,1157 @@
 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación XV Liliana</title>
+
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Cormorant Garamond',serif;
+  background:#faf9f7;
+  overflow:hidden;
+}
+.section{padding:80px 20px;text-align:center;position:relative;}
+.container{max-width:900px;margin:auto;}
+.divider{height:1px;background:#ddd}
+
+/* PORTADA */
+#bloque1{min-height:100vh;color:white;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;}
+.portada-bg{position:absolute;inset:0;background:url('https://i.postimg.cc/fTrQdhkY/1771644921701.png') center/cover no-repeat;}
+.portada-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.6));}
+.portada-content{position:relative;padding:60px 20px 80px;text-align:center;}
+.nombre-principal{font-family:'Great Vibes',cursive;font-size:clamp(60px,8vw,110px);margin-bottom:20px;}
+.fecha-evento{font-size:20px;letter-spacing:5px;margin-bottom:30px;}
+.countdown{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.countdown span{font-size:36px;display:block}
+
+/* PRESENTACIÓN */
+#bloque2{background:url('https://i.postimg.cc/zXKW4qWL/1771648462882.png') center/cover no-repeat;color:white;}
+#bloque2 .overlay{position:absolute;inset:0;background:rgba(0,0,0,.25);}
+.contenido-bloque2{position:relative;z-index:2;}
+.titulo-cursiva{font-family:'Great Vibes',cursive;font-size:36px;margin-bottom:20px;}
+.nombres{font-size:18px;margin-bottom:20px;}
+.mensaje{max-width:650px;margin:auto;line-height:1.6}
+
+/* UBICACIÓN */
+/* UBICACIÓN */
+.bloque-donde{
+  position:relative;
+  background-size:cover;
+  color:white;
+  padding:90px 20px;
+  text-align:center;
+  overflow:hidden;
+}
+
+.bloque-donde::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:0;
+}
+
+.bloque-donde > *{
+  position:relative;
+  z-index:2;
+}
+.titulo-donde{font-family:'Great Vibes',cursive;font-size:36px;margin-bottom:25px;}
+.imagen-iglesia{
+  width:90%;
+  max-width:650px;
+  border-radius:18px;
+  margin-bottom:35px;
+  box-shadow:0 25px 60px rgba(0,0,0,.4);
+}
+.card-ceremonia{
+  background:rgba(255,255,255,.93);
+  backdrop-filter:blur(6px);
+  padding:40px 25px;
+  max-width:600px;
+  margin:auto;
+  color:#333;
+  border-radius:16px;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+.btn-mapa{display:inline-block;margin-top:15px;padding:10px 25px;background:#1b4332;color:white;text-decoration:none}
+
+/* ITINERARIO */
+.bloque-itinerario{
+  position:relative;
+  padding:90px 20px;
+  background:url('https://i.postimg.cc/vZNTndyQ/1771694768824.png') center/cover no-repeat;
+  color:white;
+}
+
+.bloque-itinerario .overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
+
+.bloque-itinerario .contenido{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  margin:auto;
+}
+
+.titulo-itinerario{
+  font-family:'Great Vibes',cursive;
+  font-size:42px;
+  margin-bottom:70px;
+  text-align:center;
+}
+
+/* NUEVA LÍNEA CENTRADA */
+.timeline{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:90px;
+}
+
+.linea-vertical{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:0;
+  width:4px;
+  height:0;
+  background:#1b4332; /* verde */
+  border-radius:2px;
+  transition:height .6s ease;
+  z-index:0;
+}
+
+/* TARJETAS */
+.evento{
+  width:100%;
+  max-width:520px;
+  background:rgba(255,255,255,.97);
+  padding:40px 30px 30px 30px;
+  border-radius:14px;
+  color:#333;
+  text-align:center;
+  position:relative;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.6s ease;
+}
+
+.evento.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* CORAZÓN */
+.evento::before{
+  content:'❤';
+  position:absolute;
+  left:50%;
+  top:-30px;
+  transform:translateX(-50%);
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:white; /* blanco */
+  color:#1b4332; /* corazón verde */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  transition:.4s ease;
+  z-index:2;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+}
+
+.evento.visible::before{
+  background:#1b4332; /* verde */
+  color:white;
+  box-shadow:0 0 20px #1b4332, 0 0 40px rgba(27,67,50,0.6);
+  transform:translateX(-50%) scale(1.15);
+}
+
+.evento .hora{
+  font-weight:700;
+  font-size:18px;
+  color:#bfa046;
+  margin-bottom:8px;
+}
+
+.evento .detalle h3{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  margin-bottom:4px;
+}
+
+.evento .detalle p{
+  font-size:15px;
+  color:#555;
+}
+
+/* RSVP */
+.bloque-rsvp{padding:80px 20px;background:#faf9f7;}
+.rsvp-card{max-width:500px;margin:auto;background:#f3f5f2;border:1px solid #d4af37;padding:50px 30px;text-align:center;border-radius:8px;}
+.rsvp-titulo{font-family:'Great Vibes',cursive;font-size:34px;}
+.rsvp-nombre{font-family:'Playfair Display',serif;font-size:22px;margin:20px 0 35px;}
+.rsvp-form select,.rsvp-form button{width:100%;padding:14px;font-size:14px;margin-bottom:20px;}
+.rsvp-form button{background:#1b4332;color:white;border:none;cursor:pointer}
+
+/* VESTIMENTA */
+.vestimenta{
+  background:url('https://i.postimg.cc/ZK7pzzhj/1771737166934.png') center/cover no-repeat;
+  min-height:60vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  text-align:center;
+  padding:80px 20px;
+}
+.vestimenta .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,60,30,.35), rgba(0,0,0,.65));}
+.vestimenta h2{
+  position:relative;
+  z-index:2;
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  letter-spacing:2px;
+  color:white;
+  margin-bottom:40px;
+}
+.btn-vestimenta{
+  background:#d4af37;        /* Botón dorado */
+  color:#000000;             /* Letra negra */
+  border:none;
+  padding:15px 40px;
+  font-size:1.8rem;
+  font-weight:700;
+  border-radius:50px;
+  cursor:pointer;
+  font-family:'Playfair Display', serif; /* Elegante y legible */
+  text-transform:uppercase;  
+  margin-top:20px;
+}
+.bloque-confirmacion{
+  display:flex;
+  justify-content:center;
+  padding:60px 20px;
+  background:#f4f4f4;
+}
+
+.card-confirmacion{
+  background:#ffffff;
+  border:2px solid #c9b37e;
+  padding:50px 30px;
+  max-width:500px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.titulo-script{
+  font-family: 'Great Vibes', cursive;
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.nombre-familia{
+  font-size:26px;
+  margin-bottom:30px;
+  font-family: serif;
+}
+
+.opcion{
+  display:block;
+  text-align:left;
+  margin-bottom:15px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.opcion input{
+  margin-right:10px;
+}
+
+.btn-confirmar{
+  margin-top:30px;
+  background:#0f4c3a;
+  color:white;
+  border:none;
+  padding:14px 40px;
+  font-size:16px;
+  letter-spacing:3px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-confirmar:hover{
+  background:#0c3a2d;
+}
+/* REGALOS PREMIUM */
+
+.bloque-regalos-premium{
+
+position:relative;
+padding:100px 20px;
+background:url('https://i.postimg.cc/qqGKwNGY/1771783695071.png') center/cover no-repeat;
+text-align:center;
+color:white;
+
+}
+
+.overlay-regalos{
+
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.45);
+
+}
+
+
+.regalos-container{
+
+position:relative;
+z-index:2;
+max-width:900px;
+margin:auto;
+
+}
+
+
+/* TARJETAS */
+
+.card-regalo{
+
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.3);
+
+border-radius:20px;
+
+padding:30px;
+
+margin:25px auto;
+
+max-width:420px;
+
+box-shadow:0 25px 50px rgba(0,0,0,0.3);
+
+transition:0.4s;
+
+}
+
+
+.card-regalo:hover{
+
+transform:translateY(-10px) scale(1.03);
+
+box-shadow:0 35px 70px rgba(0,0,0,0.5);
+
+}
+
+
+/* TITULO */
+
+.titulo-regalo{
+
+font-size:26px;
+margin-bottom:15px;
+
+}
+
+
+/* BOTON */
+
+.btn-toggle{
+
+background:#1b4332;
+color:white;
+border:none;
+
+padding:15px;
+
+width:100%;
+
+font-size:18px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+display:flex;
+justify-content:space-between;
+
+}
+
+.flecha{
+
+transition:0.4s;
+display:inline-block;
+
+}
+
+.flecha.rotada{
+
+transform:rotate(180deg);
+
+}
+
+/* CONTENIDO */
+
+.contenido-regalo{
+
+max-height:0;
+overflow:hidden;
+transition:max-height 0.6s ease, margin-top 0.4s ease;
+padding:0 5px;
+
+}
+
+.contenido-regalo.activo{
+  max-height:500px;
+  margin-top:15px;
+}
+
+.contenido-regalo p{
+  background:rgba(255,255,255,0.95);
+  color:#333;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  font-size:16px;
+}
+.card-regalo.activo{
+  box-shadow:0 0 25px #d4af37;
+  overflow: visible;
+  transform:scale(1.03);
+}
+/* SOBRE REAL */
+
+.sobre-container {
+  margin: 20px auto;      /* ← centra horizontalmente */
+  perspective: 1200px;
+  display: flex;          /* ← activa centrado */
+  justify-content: center;/* ← centra el sobre */
+}
+
+.sobre {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  background: #1b4332;
+  border-radius: 8px;
+  overflow: hidden; /* ✅ */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+}
+/* Carta empieza escondida */
+.sobre .carta {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  bottom: -100%;
+  background: white;
+  color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  transition: 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+  z-index: 2;
+}
+
+.sobre.abierto .carta {
+  bottom: 10px;
+}
+
+.sobre .tapa {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#14532d;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  transition: 0.6s ease;
+  z-index:3;
+  backface-visibility: hidden;
+}
+
+.sobre.abierto .tapa {
+  transform: rotateX(180deg);
+}
+
+@media (max-width:400px){
+  .nombre-principal {
+    font-size:clamp(40px,12vw,80px);
+  }
+  .titulo-itinerario{
+    font-size:32px;
+  }
+  .btn-vestimenta{
+    font-size:1.5rem;
+    padding:12px 30px;
+  }
+}
+/* Entrada sobre inicial */
+#entradaSobre{
+  position:fixed;
+  inset:0;
+  background:#111;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end; /* antes era center, ahora abajo */
+  padding-bottom:100px; /* distancia desde el borde inferior */
+  z-index:9999;
+  cursor:pointer;
+  transition: opacity 1s ease;
+}
+
+.sobre-inicial{
+  width:350px;
+  height:auto;
+  cursor:pointer;
+  transform: scale(0);
+  animation: aparecerSobre 1s forwards;
+  z-index: 9999;
+}
+
+@keyframes aparecerSobre{
+  0%{ transform: scale(0) rotate(-20deg) translateY(-50px); opacity:0; }
+  50%{ transform: scale(1.1) rotate(10deg) translateY(0); opacity:1; }
+  100%{ transform: scale(1) rotate(0deg) translateY(0); opacity:1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ENTRADA DEL SOBRE -->
+<div id="entradaSobre" onclick="iniciarInvitacion()">
+  <img class="sobre-inicial"
+       src="https://i.postimg.cc/fW82tq9j/Diseno-sin-titulo-20260223-001937-0000.png"
+       alt="Sobre">
+</div>
+
+<!-- PORTADA -->
+<section id="bloque1">
+  <div class="portada-bg"></div>
+  <div class="portada-overlay"></div>
+  <div class="portada-content">
+   <div class="nombre-principal" id="nombrePrincipal"></div>
+<div class="fecha-evento" id="fechaEventoTexto"></div>
+    <div class="countdown">
+      <div><span id="dias">00</span>DÍAS</div>
+      <div><span id="horas">00</span>HORAS</div>
+      <div><span id="minutos">00</span>MIN</div>
+      <div><span id="segundos">00</span>SEG</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRESENTACIÓN -->
+<section id="bloque2" class="section">
+  <div class="overlay"></div>
+  <div class="contenido-bloque2 container">
+    <div class="titulo-cursiva">Con la bendición de mis padres</div>
+    <div class="nombres">Ana Cristina Huerta Sandoval<br>Pablo Sanchez Cornejo</div>
+    <div class="titulo-cursiva">Mis padrinos</div>
+    <div class="nombres">Berenice Perez Nuñez<br>Carlos Mendoza Salgado</div>
+    <div class="mensaje">
+      Hay momentos en la vida que son especiales por sí solos, pero compartirlos con quienes más quiero los convierte en inolvidables. Te invito a celebrar conmigo este día tan especial.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CEREMONIA -->
+<section class="bloque-donde" style="background:url('https://i.postimg.cc/T3DcfBsS/1771656174995.png') center/cover no-repeat;">
+  <h2 class="titulo-donde">Ceremonia Religiosa</h2>
+  <img src="https://i.postimg.cc/PqJr1MQC/1771651961330.png" class="imagen-iglesia">
+  <div class="card-ceremonia">
+    <p>Iglesia Espíritu Santo</p>
+    <p>17:00 hrs</p>
+    <p>Leandro Valle #453</p>
+    <p>Potacio, 60924</p>
+    <a class="btn-mapa" href="https://www.google.com/maps/search/Iglesia+Espiritu+Santo" target="_blank">VER MAPA</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECEPCIÓN -->
+<section class="bloque-donde" style="background:url('https://i.postimg.cc/Wbndr8k4/1771656700949.png') center/cover no-repeat;">
+  <h2 class="titulo-donde">Recepción</h2>
+  <img src="https://i.postimg.cc/mgZWQbGg/1771714306989.png" class="imagen-iglesia">
+  <div class="card-ceremonia">
+    <p>Zona Eventos</p>
+    <p>20:00 hrs</p>
+    <p>Av. Manuel L. Barragán 134</p>
+    <p>Anáhuac, 60957</p>
+    <a class="btn-mapa" href="https://www.google.com/maps/search/Zona+Eventos+Anahuac+60957" target="_blank">VER MAPA</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ITINERARIO -->
+<section class="bloque-itinerario">
+  <div class="overlay"></div>
+  <div class="contenido">
+    <h2 class="titulo-itinerario">Itinerario del Evento</h2>
+    <div class="timeline">
+      <div class="linea-vertical"></div>
+
+      <div class="evento">
+        <div class="hora">17:00 hrs</div>
+        <div class="detalle">
+          <h3>Ceremonia Religiosa</h3>
+          <p>Iglesia Espíritu Santo</p>
+        </div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">19:00 hrs</div>
+        <div class="detalle">
+          <h3>Presentación</h3>
+          <p>Entrada de la quinceañera</p>
+        </div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">20:00 hrs</div>
+        <div class="detalle">
+          <h3>Recepción</h3>
+          <p>Zona Eventos</p>
+        </div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">21:00 hrs</div>
+        <div class="detalle">
+          <h3>Cena y Brindis</h3>
+          <p>Celebración especial</p>
+        </div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">22:00 hrs</div>
+        <div class="detalle">
+          <h3>Baile</h3>
+          <p>Apertura de pista</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RSVP -->
+<section class="bloque-rsvp">
+  <div class="rsvp-card">
+    <p class="rsvp-titulo">Invitación para:</p>
+    <h3 class="rsvp-nombre" id="nombreInvitado">Laura Salinas Garza</h3>
+    <div class="rsvp-form">
+      <select id="numAsistentes">
+        <option value="">Selecciona asistentes</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      </select>
+      <button onclick="confirmarAsistencia()">CONFIRMAR</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOQUE CONFIRMACIÓN FAMILIA CON WHATSAPP -->
+<section class="bloque-confirmacion">
+  <div class="card-confirmacion">
+    
+    <h2 class="titulo-script">Invitación para:</h2>
+    
+    <h3 class="nombre-familia">Familia Hernández López</h3>
+
+    <form id="formFamilia">
+      <label class="opcion">
+        <input type="checkbox" name="asistentes" value="Ana Hernández López">
+        Ana Hernández López
+      </label>
+
+      <label class="opcion">
+        <input type="checkbox" name="asistentes" value="Miguel Hernández López">
+        Miguel Hernández López
+      </label>
+
+      <label class="opcion">
+        <input type="checkbox" name="asistentes" value="Sofía Hernández López">
+        Sofía Hernández López
+      </label>
+
+      <label class="opcion">
+        <input type="checkbox" name="asistentes" value="Daniel Hernández López">
+        Daniel Hernández López
+      </label>
+
+      <label class="opcion">
+        <input type="checkbox" name="asistentes" value="No podremos asistir">
+        No podremos asistir
+      </label>
+
+      <button type="button" class="btn-confirmar" onclick="enviarFamiliaWhatsApp()">
+        CONFIRMAR
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CÓDIGO DE VESTIMENTA -->
+<section class="vestimenta">
+  <div class="overlay"></div>
+  <h2>Código de Vestimenta</h2>
+  <button class="btn-vestimenta">Formal</button>
+</section>
+
+<div class="divider"></div>
+
+<section class="bloque-regalos-premium">
+
+<div class="overlay-regalos"></div>
+
+<div class="regalos-container">
+
+<h2 style="font-family:'Great Vibes'; font-size:48px;">
+Regalos
+</h2>
+
+<p style="margin-bottom:40px;">
+Tu presencia es el mejor regalo
+</p>
+
+
+<!-- SOBRE REAL PREMIUM -->
+
+<div class="card-regalo">
+
+<div class="titulo-regalo">
+💌 Lluvia de Sobres
+</div>
+
+<div class="sobre-container" onclick="abrirSobre(this)">
+
+<div class="sobre">
+
+<div class="tapa"></div>
+
+<div class="carta">
+
+<p>Beneficiario: Liliana Sanchez</p>
+<p>Banco: BBVA</p>
+<p>Cuenta: 12345678</p>
+<p>CLABE: 123456789</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- AMAZON -->
+
+<div class="card-regalo">
+
+<div class="titulo-regalo">
+🎁 Mesa de Regalos
+</div>
+
+<a href="https://www.amazon.com.mx" target="_blank">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+style="height:60px; margin-top:15px;">
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BLOQUE 9: SUGERENCIAS -->
+<section id="bloque9" style="position:relative; background:url('https://i.postimg.cc/qqGKwNGY/1771783695071.png') center/cover no-repeat; padding:90px 20px; color:#333; text-align:center; overflow:hidden;">
+  <div class="contenido" style="position:relative; z-index:2; max-width:900px; margin:auto;">
+    <h2 style="font-family:'Great Vibes',cursive; font-size:42px; margin-bottom:40px; color:white;">Sugerencias</h2>
+    
+    <!-- HOSPEDAJE -->
+    <div style="margin-bottom:40px; text-align:left; max-width:700px; margin:auto;">
+      <button class="btn-sugerencia" style="width:100%; background:#1b4332; color:#fff; border:2px solid #d4af37; padding:15px 20px; font-size:18px; border-radius:50px; cursor:pointer; font-family:'Playfair Display', serif; font-weight:700; text-align:left; margin-bottom:15px;">
+        Hospedaje ↓
+      </button>
+      <div class="datos-sugerencia" style="display:none; background:#1b4332; border:2px solid #d4af37; padding:20px; border-radius:12px; color:white;">
+        <p><strong>Hotel Paraíso</strong><br>Av. Principal 123, Ciudad<br><a href="https://www.google.com/maps/search/Hotel+Paraiso" target="_blank" style="color:#d4af37;">Ver mapa</a></p>
+        <p><strong>Hotel Sol</strong><br>Calle Luna 45, Ciudad<br><a href="https://www.google.com/maps/search/Hotel+Sol" target="_blank" style="color:#d4af37;">Ver mapa</a></p>
+        <p><strong>Hotel Estrella</strong><br>Av. Central 78, Ciudad<br><a href="https://www.google.com/maps/search/Hotel+Estrella" target="_blank" style="color:#d4af37;">Ver mapa</a></p>
+      </div>
+    </div>
+    
+    <!-- LUGARES TURÍSTICOS -->
+    <div style="margin-bottom:40px; text-align:left; max-width:700px; margin:auto;">
+      <button class="btn-sugerencia" style="width:100%; background:#1b4332; color:#fff; border:2px solid #d4af37; padding:15px 20px; font-size:18px; border-radius:50px; cursor:pointer; font-family:'Playfair Display', serif; font-weight:700; text-align:left; margin-bottom:15px;">
+        Lugares turísticos ↓
+      </button>
+      <div class="datos-sugerencia" style="display:none; background:#1b4332; border:2px solid #d4af37; padding:20px; border-radius:12px; color:white;">
+        <p><strong>Parque Central</strong><br>Calle 1, Ciudad<br><a href="https://www.google.com/maps/search/Parque+Central" target="_blank" style="color:#d4af37;">Ver mapa</a></p>
+        <p><strong>Museo de Arte</strong><br>Avenida Cultura 22, Ciudad<br><a href="https://www.google.com/maps/search/Museo+de+Arte" target="_blank" style="color:#d4af37;">Ver mapa</a></p>
+        <p><strong>Mirador del Valle</strong><br>Calle Mirador 10, Ciudad<br><a href="https://www.google.com/maps/search/Mirador+del+Valle" target="_blank" style="color:#d4af37;">Ver mapa</a></p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 10: GALERÍA DEL EVENTO -->
+<section class="bloque-galeria" style="position:relative; background:url('https://i.postimg.cc/qqGKwNGY/1771783695071.png') center/cover no-repeat; padding:90px 20px; text-align:center; color:white;">
+  
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.5);"></div>
+  
+  <div style="position:relative; z-index:2; max-width:900px; margin:auto;">
+    
+    <h2 style="font-family:'Great Vibes',cursive; font-size:42px; margin-bottom:20px;">
+      Comparte tus fotos
+    </h2>
+    
+    <p style="max-width:600px; margin:auto; font-size:18px; line-height:1.6; margin-bottom:40px;">
+      Ayúdanos a capturar cada momento especial. Escanea el código QR o da clic en el botón para subir tus fotos y videos del evento.
+    </p>
+    
+    <!-- TARJETA -->
+    <div style="background:rgba(255,255,255,0.95); color:#333; max-width:420px; margin:auto; padding:40px 25px; border-radius:18px; box-shadow:0 20px 50px rgba(0,0,0,0.3);">
+      
+      <!-- QR FALSO -->
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://drive.google.com/" 
+           alt="QR Galería"
+           style="width:200px; margin-bottom:25px;">
+      
+      <!-- BOTÓN -->
+      <a href="https://drive.google.com/" target="_blank"
+   style="display:block; 
+          background:#1b4332; 
+          color:white; 
+          padding:14px 28px; 
+          border-radius:30px; 
+          text-decoration:none; 
+          font-weight:600; 
+          margin:20px auto; 
+          width:fit-content;">
+   Subir fotos
+</a>
+      
+      <!-- HASHTAG -->
+      <p style="margin-top:10px; font-size:16px;">
+        También puedes compartir en redes con el hashtag
+      </p>
+      
+      <div style="font-family:'Playfair Display',serif; font-size:22px; color:#d4af37; margin-top:8px;">
+       <div id="hashtagEvento"></div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOQUE AGRADECIMIENTO -->
+<section class="bloque-agradecimiento" 
+         style="position:relative; 
+                background:url('https://i.postimg.cc/PJFqWqr9/1771796401780.png') center/cover no-repeat; 
+                min-height:60vh; 
+                display:flex; 
+                align-items:center; 
+                justify-content:center; 
+                text-align:center; 
+                color:white; 
+                padding:80px 20px;">
+  
+  <!-- Overlay -->
+  <div class="overlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.55); z-index:0;"></div>
+  
+  <!-- Contenido -->
+  <div style="position:relative; z-index:2; max-width:800px;">
+    <h2 style="font-family:'Great Vibes',cursive; font-size:48px; line-height:1.2;">
+      Gracias por acompañarme<br>en este día tan especial
+    </h2>
+  </div>
+</section>
+<!-- BLOQUE GALERÍA DE FOTOS -->
+<section class="bloque-galeria-vivida" style="
+  position:relative; 
+  padding:90px 20px; 
+  text-align:center; 
+  background:url('https://i.postimg.cc/qqGKwNGY/1771783695071.png') center/cover no-repeat; 
+  color:#fff;
+">
+  <!-- Overlay para que el texto resalte -->
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.45); z-index:0;"></div>
+
+  <h2 style="position:relative; z-index:2; font-family:'Great Vibes',cursive; font-size:42px; margin-bottom:40px;">
+    Galería de recuerdos
+  </h2>
+  
+  <div class="galeria-vivida-container" style="position:relative; max-width:800px; margin:auto; overflow:hidden; border-radius:18px; box-shadow:0 15px 35px rgba(0,0,0,0.2); z-index:2;">
+    
+    <div class="galeria-vivida-slider" style="display:flex; transition:transform 0.5s ease;">
+      <img src="https://i.postimg.cc/X7fjNx9d/1771796410158.png" style="width:100%; flex-shrink:0;"/>
+      <img src="https://i.postimg.cc/sfSyKKH2/1771796396479.png" style="width:100%; flex-shrink:0;"/>
+      <img src="https://i.postimg.cc/hG6W179v/1771796391351.png" style="width:100%; flex-shrink:0;"/>
+      <img src="https://i.postimg.cc/cC7pW9PC/1771796834634.png" style="width:100%; flex-shrink:0;"/>
+      <img src="https://i.postimg.cc/3JBsbqXQ/1771808123419.png" style="width:100%; flex-shrink:0;"/>
+      <img src="https://i.postimg.cc/gjKTQw6V/1771796407589.png" style="width:100%; flex-shrink:0;"/>
+    </div>
+    
+    <!-- Botones -->
+    <button class="galeria-prev" style="position:absolute; top:50%; left:15px; transform:translateY(-50%); background:rgba(27,67,50,0.7); color:white; border:none; padding:10px 15px; font-size:20px; border-radius:8px; cursor:pointer;">❮</button>
+    <button class="galeria-next" style="position:absolute; top:50%; right:15px; transform:translateY(-50%); background:rgba(27,67,50,0.7); color:white; border:none; padding:10px 15px; font-size:20px; border-radius:8px; cursor:pointer;">❯</button>
+    
+  </div>
+</section>
+
+<!-- BLOQUE AGRADECIMIENTO PERSONALIZADO -->
+<section class="bloque-agradecimiento-personalizado" 
+         style="
+           position:relative;
+           background:url('https://i.postimg.cc/bvd00KN7/1771903822606.png') center/cover no-repeat;
+           min-height:60vh;
+           display:flex;
+           align-items:center;
+           justify-content:center;
+           text-align:center;
+           color:white;
+           padding:80px 20px;
+         ">
+  
+  <!-- Overlay semitransparente -->
+  <div class="overlay" style="
+         position:absolute; 
+         inset:0; 
+         background:rgba(0,0,0,0.45); 
+         z-index:0;
+       ">
+  </div>
+  
+  <!-- Contenido -->
+  <div style="position:relative; z-index:2; max-width:900px;">
+    <h2 style="
+         font-family:'Great Vibes',cursive; 
+         font-size:48px; 
+         line-height:1.2;
+         margin-bottom:20px;
+       ">
+      Gracias por estar<br>junto a mí
+    </h2>
+    <p style="
+         font-family:'Cormorant Garamond',serif;
+         font-size:20px;
+         margin-top:10px;
+       ">
+      Tu cariño y compañía hicieron de este día algo inolvidable.
+    </p>
+  </div>
+  
+</section>
+<script src="config.js"></script>
+<script>
+
+alert("config cargado");
+window.addEventListener("load", function(){
+
+  const nombre = document.getElementById("nombrePrincipal");
+  const fecha = document.getElementById("fechaEventoTexto");
+  const hashtag = document.getElementById("hashtagEvento");
+
+  if(nombre) nombre.innerText = CONFIG.nombre;
+  if(fecha) fecha.innerText = CONFIG.fechaTexto;
+  if(hashtag) hashtag.innerText = CONFIG.hashtag;
+
+});
+/* CUENTA REGRESIVA */
+const fechaEvento=new Date(CONFIG.fechaCuentaRegresiva).getTime();
+setInterval(()=>{
+  const ahora=new Date().getTime();
+  const d=fechaEvento-ahora;
+  if(d<=0)return;
+  document.getElementById("dias").innerText=Math.floor(d/(1000*60*60*24));
+  document.getElementById("horas").innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("minutos").innerText=Math.floor((d%(1000*60*60))/(1000*60));
+  document.getElementById("segundos").innerText=Math.floor((d%(1000*60))/1000);
+},1000);
+
+/* RSVP WHATSAPP */
+function confirmarAsistencia(){
+  const nombre=document.getElementById("nombreInvitado").innerText;
+  const asistentes=document.getElementById("numAsistentes").value;
+  if(!asistentes){ alert("Selecciona asistentes"); return; }
+  const telefono = CONFIG.telefonoWhatsApp;
+  const mensaje=`Confirmo asistencia 🎉\nNombre: ${nombre}\nAsistentes: ${asistentes}`;
+  window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`,"_blank");
+}
+
+/* CONFIRMACIÓN FAMILIA POR WHATSAPP */
+function enviarFamiliaWhatsApp(){
+    const checkboxes = document.querySelectorAll('#formFamilia input[type="checkbox"]:checked');
+    
+    if(checkboxes.length === 0){
+        alert("Por favor selecciona al menos una opción");
+        return;
+    }
+
+    let mensaje = "Confirmación de asistencia - Familia Hernández López:%0A";
+
+    checkboxes.forEach(cb => {
+        mensaje += "• " + cb.value + "%0A";
+    });
+
+    const telefono = CONFIG.telefonoWhatsApp; // Cambia por tu número
+    const url = "https://wa.me/" + telefono + "?text=" + mensaje;
+
+    window.open(url, "_blank");
+}
+
+/* ANIMACIÓN ITINERARIO BLOQUE POR BLOQUE */
+function animarItinerarios() {
+  const bloquesItinerario = document.querySelectorAll('.bloque-itinerario');
+
+  bloquesItinerario.forEach(bloque => {
+    const timeline = bloque.querySelector('.timeline');
+    const linea = timeline.querySelector('.linea-vertical');
+    const eventos = timeline.querySelectorAll('.evento');
+
+    let altura = 0;
+
+    eventos.forEach(evento => {
+      const rect = evento.getBoundingClientRect();
+      const topTimeline = timeline.getBoundingClientRect().top;
+
+      // Activar evento cuando está visible
+      if(rect.top < window.innerHeight * 0.85){
+        evento.classList.add('visible');
+        altura = Math.max(altura, evento.offsetTop + 30);
+      }
+    });
+
+    // Limitar altura al final de la timeline
+    const maxAltura = timeline.scrollHeight;
+    if(altura > maxAltura) altura = maxAltura;
+    linea.style.height = altura + 'px';
+  });
+}
+
+window.addEventListener('scroll', animarItinerarios);
+window.addEventListener('load', animarItinerarios);
+
+ // ACORDEONES BLOQUE 9
+  const botonesSugerencia = document.querySelectorAll('.btn-sugerencia');
+  
+  botonesSugerencia.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const contenido = btn.nextElementSibling;
+      if(contenido.style.display === "" || contenido.style.display === "none"){
+        contenido.style.display = "block";
+        btn.innerText = btn.innerText.replace('↓','↑');
+      } else {
+        contenido.style.display = "none";
+        btn.innerText = btn.innerText.replace('↑','↓');
+      }
+    });
+  });
+
+// GALERÍA VIVIDA - SCRIPT
+const sliderV = document.querySelector('.galeria-vivida-slider');
+
+if(sliderV){
+  const slidesV = sliderV.children;
+  const totalSlidesV = slidesV.length;
+  let indexV = 0;
+
+  const prevV = document.querySelector('.galeria-prev');
+  const nextV = document.querySelector('.galeria-next');
+
+  function showSlideV(i){
+      if(i < 0) indexV = totalSlidesV - 1;
+      else if(i >= totalSlidesV) indexV = 0;
+      else indexV = i;
+      sliderV.style.transform = `translateX(-${indexV * 100}%)`;
+  }
+
+  prevV.addEventListener('click', () => showSlideV(indexV - 1));
+  nextV.addEventListener('click', () => showSlideV(indexV + 1));
+
+  setInterval(() => showSlideV(indexV + 1), 5000);
+}
+function toggleRegalo(btn){
+
+let contenido = btn.nextElementSibling;
+let flecha = btn.querySelector(".flecha");
+
+if(contenido) contenido.classList.toggle("activo");
+
+if(flecha) flecha.classList.toggle("rotada");
+
+btn.parentElement.classList.toggle("activo");
+
+}
+
+
+function abrirSobre(elemento){
+
+const sobre = elemento.querySelector(".sobre");
+
+sobre.classList.toggle("abierto");
+
+}
+
+
+function iniciarInvitacion(){
+  const sobre = document.getElementById('entradaSobre');
+  sobre.style.opacity = '0';
+  setTimeout(() => sobre.style.display = 'none', 1000);
+
+  const musica = document.getElementById('musica-fondo');
+  if(musica){
+    musica.play().catch(e => console.log("Autoplay bloqueado, toca para iniciar música"));
+  }
+
+  // Permitir scroll del body
+  document.body.style.overflow = 'auto';
+}
+</script>
+
+<audio id="musica-fondo" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
